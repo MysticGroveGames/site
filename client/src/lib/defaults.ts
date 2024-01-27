@@ -1,0 +1,2 @@
+export const defaultImage:string = 'https://res.cloudinary.com/dzqcxevcq/image/upload/v1706073928/Default%20Image%20Landscape.jpg';
+export const defaultImageShort:string = 'v1706073928/Default%20Image%20Landscape.jpg';

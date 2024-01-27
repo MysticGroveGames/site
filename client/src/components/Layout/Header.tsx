@@ -1,8 +1,7 @@
+import { NavMenu } from "../Navigation/NavMenu";
 const Header = () => {
   return ( 
-    <div>
-      Header
-    </div>
+    <NavMenu />
    );
 }
  

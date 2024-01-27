@@ -20,7 +20,7 @@ const HomePage = () => {
     <div className="App">
       <header className="App-header">
         <h1 className="App-title">Welcome to React</h1>
-        <p style={{ color: "white" }}>{data}</p>
+        <p>{data}</p>
       </header>
     </div>
   );
