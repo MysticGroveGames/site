@@ -10,8 +10,14 @@ const HomePage = () => {
         }
         const body = await response.json();
         setData(body.message);
-      } catch (error:any) {
-        console.error(error.message);
+      } catch (error:unknown) {
+        let message
+        if (error instanceof Error) {
+          message = error.message
+        }  else {
+          message = String(error)
+        }
+        console.error(message);      
       }
     };
     callBackendAPI();

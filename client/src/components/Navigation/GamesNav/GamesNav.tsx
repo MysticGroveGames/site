@@ -17,8 +17,14 @@ const GamesNav = ({currentPage}:GameNavProps) => {
         const body = await response.json();
 
         setData(body);
-      } catch (error:any) {
-        console.error(error.message);
+      } catch (error:unknown) {
+        let message
+        if (error instanceof Error) {
+          message = error.message
+        }  else {
+          message = String(error)
+        }
+        console.error(message);
       }
     };
     callBackendAPI();
@@ -27,7 +33,7 @@ const GamesNav = ({currentPage}:GameNavProps) => {
   return ( 
     <>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2 w-9/12 mx-auto max-w-screen-xl">
-        {data!==null && data.map((d:any)=>{
+        {data!==null && data.map((d:GameType)=>{
           if(d.name !== currentPage) {            
             return(
               <GameNavCard

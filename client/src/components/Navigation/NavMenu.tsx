@@ -26,8 +26,14 @@ export function NavMenu(){
         const body = await response.json();
         setGameNavData(body.gameNavItems);
         setNavData(body.primaryNavItems);
-      } catch (error:any) {
-        console.error(error.message);
+      } catch (error:unknown) {
+        let message
+      if (error instanceof Error) {
+        message = error.message
+      }  else {
+        message = String(error)
+      }
+      console.error(message);
       }
     };
     callBackendAPI();

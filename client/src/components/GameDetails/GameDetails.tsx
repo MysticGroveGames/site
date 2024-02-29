@@ -27,10 +27,17 @@ useEffect(() => {
       const body = await response.json();
 
       setData(body);
-    } catch (error:any) {
-      console.error(error.message);
+      // eslint-disable @typescript-eslint/no-explicit-any
+    } catch (error:unknown) {
+      let message
+      if (error instanceof Error) {
+        message = error.message
+      }  else {
+        message = String(error)
+      }
+      console.error(message);
     }
-  };
+  }
   callBackendAPI();
 }, [gameId]);
 
